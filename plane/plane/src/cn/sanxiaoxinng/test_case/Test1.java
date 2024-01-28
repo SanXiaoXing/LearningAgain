@@ -1,4 +1,4 @@
-package cn.sanxiaoxinng;
+package cn.sanxiaoxinng.test_case;
 
 /**
  * @Author: SanXiaoXing

@@ -1,4 +1,4 @@
-package cn.sanxiaoxinng;
+package cn.sanxiaoxinng.test_case;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -10,12 +10,15 @@ import java.util.Scanner;
  */
 public class Test6 {
     public static void main(String[] args) {
-//        int[] usernum = input();
-//        System.out.println("最终的号码是：");
-//        printArray(usernum);
-
-        int[] usernum = creatRandomNum();
+        int[] usernum = input();
+        System.out.println("自选的号码是：");
         printArray(usernum);
+
+        int[] usernum2 = creatRandomNum();
+        System.out.println("中奖号码为:");
+        printArray(usernum2);
+
+        judge(usernum, usernum2);
     }
 
     /**
@@ -120,6 +123,43 @@ public class Test6 {
      * @Description: 判断用户中将情况
      */
     public static void judge(int[] userNum, int[] luckyNum){
+
+        //定义两个变量分别计算红球和蓝球的的中奖情况
+        int red = 0;
+        int blue = 0;
+
+        //遍历序号是否存在
+        for (int i = 0; i < userNum.length - 1; i++) {
+            //遍历中奖号码是否命中
+            for (int j = 0; j < luckyNum.length - 1; j++) {
+                if (userNum[i] == luckyNum[j]) {
+                    red++;
+                    break;
+                }
+            }
+        }
+
+        //蓝球命中
+        blue = luckyNum[6] == userNum[6] ? 1 : 0;
+        System.out.println("红球中将数量为" + red);
+        System.out.println("蓝球中将数量为" + blue);
+
+        //输出中将号码结果
+        if (red == 6 && blue == 1) {
+            System.out.println("恭喜您中一等奖");
+        } else if (red == 6 && blue == 0) {
+            System.out.println("恭喜您中二等奖");
+        } else if (red == 5 && blue == 1) {
+            System.out.println("恭喜您中三等奖");
+        } else if (red == 5 && blue == 0 || red == 4 && blue == 1) {
+            System.out.println("恭喜您中四等");
+        } else if (red == 4 && blue == 0 || red == 3 && blue == 1) {
+            System.out.println("恭喜您中五等");
+        }else if (red < 3 && blue == 1) {
+            System.out.println("恭喜您中六等");
+        }else {
+            System.out.println("很遗憾，您没有中奖");
+        }
 
     }
 
