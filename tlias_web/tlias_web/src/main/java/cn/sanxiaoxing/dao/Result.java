@@ -1,0 +1,33 @@
+package cn.sanxiaoxing.dao;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @Author: SanXiaoXing
+ * @Date: 2024/02/17/20:30
+ * @Description: 前后端工程在进行交互时，使用统一响应结果 Result。
+ */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Result {
+    private Integer code;//响应码，1 代表成功; 0 代表失败
+    private String msg;  //响应信息 描述字符串
+    private Object data; //返回的数据
+
+    //增删改 成功响应
+    public static Result success(){
+        return new Result(1,"success",null);
+    }
+    //查询 成功响应
+    public static Result success(Object data){
+        return new Result(1,"success",data);
+    }
+    //失败响应
+    public static Result error(String msg){
+        return new Result(0,msg,null);
+    }
+}
