@@ -1,6 +1,11 @@
 package cn.sanxiaoxing.service;
 
+import cn.sanxiaoxing.dao.Emp;
 import cn.sanxiaoxing.dao.PageBean;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDate;
+import java.util.List;
 
 /**
  * @Author: SanXiaoXing
@@ -14,5 +19,19 @@ public interface EmpService {
      * @param pageSize 每页展示记录数
      * @return
      */
-    PageBean page(Integer page, Integer pageSize);
+    PageBean page(Integer page, Integer pageSize,String name, Short gender, LocalDate begin, LocalDate end);
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/2/18 0018 23:15
+     * @Description: 批量删除的方法
+     */
+    void delete(List<Integer> ids);
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/2/18 0018 23:26
+     * @Description: 新增员工
+     */
+    void save(Emp emp);
 }

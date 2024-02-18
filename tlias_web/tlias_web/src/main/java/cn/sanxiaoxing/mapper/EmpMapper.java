@@ -1,9 +1,11 @@
 package cn.sanxiaoxing.mapper;
 
 import cn.sanxiaoxing.dao.Emp;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -35,6 +37,22 @@ public interface EmpMapper {
      * @Date: 2024/2/17 0017 23:45
      * @Description: 员工信息的查询
      */
-    @Select("select * from emp")
-    public List<Emp> list();
+//    @Select("select * from emp")
+    public List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/2/18 0018 23:16
+     * @Description: 批量删除操作
+     */
+    void delete(List<Integer> ids);
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/2/18 0018 23:27
+     * @Description: 新增员工信息
+     */
+    @Insert("insert into emp (username, name, gender, image, job, entrydate, dept_id, create_time, update_time) " +
+            "values (#{username}, #{name}, #{gender}, #{image}, #{job}, #{entrydate}, #{deptId}, #{createTime}, #{updateTime});")
+    void insert(Emp emp);
 }
