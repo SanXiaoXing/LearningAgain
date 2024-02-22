@@ -34,4 +34,11 @@ public interface EmpService {
      * @Description: 新增员工
      */
     void save(Emp emp);
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/2/23 0023 0:23
+     * @Description: 根据id查询员工
+     */
+    Emp getById(Integer id);
 }
