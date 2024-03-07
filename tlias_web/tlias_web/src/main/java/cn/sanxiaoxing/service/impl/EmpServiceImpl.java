@@ -71,4 +71,15 @@ public class EmpServiceImpl implements EmpService {
     public Emp getById(Integer id) {
         return empMapper.getById(id);
     }
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/3/7 0007 21:37
+     * @Description: 更新员工信息
+     */
+    @Override
+    public void update(Emp emp) {
+        emp.setUpdateTime(LocalDateTime.now());
+        empMapper.update(emp);
+    }
 }

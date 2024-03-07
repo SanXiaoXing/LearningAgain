@@ -63,4 +63,11 @@ public interface EmpMapper {
      */
     @Select("select * from emp where id = #{id}")
     Emp getById(Integer id);
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/3/7 0007 21:37
+     * @Description: 更新员工信息
+     */
+    void update(Emp emp);
 }
