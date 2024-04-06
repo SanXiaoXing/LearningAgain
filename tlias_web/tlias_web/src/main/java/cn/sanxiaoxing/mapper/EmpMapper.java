@@ -70,4 +70,12 @@ public interface EmpMapper {
      * @Description: 更新员工信息
      */
     void update(Emp emp);
+
+    /**
+    * @Description: 根据用户名和密码查询员工信息
+    * @Author: SanXiaoXing
+    * @Date: 2024/4/6
+    */
+    @Select("select * from emp where username = #{username} and password = #{password}")
+    Emp getByUsernameAndPassword(Emp emp);
 }

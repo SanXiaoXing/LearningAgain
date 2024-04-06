@@ -48,4 +48,11 @@ public interface EmpService {
      * @Description: 更新员工数据
      */
     void update(Emp emp);
+
+    /**
+     * @Author: SanXiaoXing
+     * @Date: 2024/3/7 0007 21:35
+     * @Description: 员工登录
+     */
+    Emp login(Emp emp);
 }
