@@ -32,3 +32,13 @@ if __name__ == '__main__':
     print(f"字典1中的值是{stu_score_dict}")
     score = stu_score_dict['stu1']['Chinese']
     print(f"字典1中stu1的Chinese的值是{score}")
+    msg_dict = {}
+    msg = "aaabbbssscccc"
+    for i in range (len(msg)):
+        test = msg[i]
+        if test not in msg_dict:
+            msg_dict[test] = 1
+        else:
+            msg_dict[test] += 1
+        print(test)
+        print(msg_dict)
